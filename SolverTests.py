@@ -54,6 +54,28 @@ class TestSolve(unittest.TestCase):
         expected = 140/5/6
         arr = ["+", "140", "/", "5", "/", "6"]
         self.assertEqual(expected,solve_expression(arr))
+    def testBrackets_plus(self):
+        expected = 11
+        arr = ["+", "5", "+", "(", "10", "-","4",")"]
+        self.assertEqual(expected,solve_expression(arr))
+    def testBrackets_mult(self):
+        expected = 30
+        arr = ["+", "5", "*", "(", "10", "-","4",")"]
+        self.assertEqual(expected,solve_expression(arr))
+    def testBrackets_mult2x(self):
+        expected = 220
+        arr = ["+", "5", "*", "(", "11", "*","4",")"]
+        self.assertEqual(expected,solve_expression(arr))
+
+    def testBrackets_negative_in_brackets(self):
+        expected = -220
+        arr = ["+", "5", "*", "(", "11","*","(","-","4",")",")"]
+        self.assertEqual(expected,solve_expression(arr))
+
+    def testInBracket(self):
+        expected = 15
+        arr = ["(", "12", "+", "3",")"]
+        self.assertEqual(expected, solve_expression(arr))
 
 if __name__ == "__main__":
     unittest.main()
