@@ -1,10 +1,10 @@
-def get_enclosing_bracket_ind(s,opening_bracket_ind):
+def get_enclosing_bracket_ind(s: list, start_ind: int) -> int:
     stack = []
     for i in range(len(s)):
-        if s[i]=="(":
+        if s[i] == "(":
             stack.append("(")
-        elif s[i]==")":
+        elif s[i] == ")":
             stack.pop()
             if len(stack) == 0:
-                return i+opening_bracket_ind
+                return i+start_ind
     return False
